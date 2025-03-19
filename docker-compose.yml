@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    pull_policy: missing
+    container_name: discoteca_mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin  # Contraseña del usuario root
+      MYSQL_DATABASE: discoteca     # Base de datos que se creará automáticamente
+      MYSQL_USER: userdb       # Usuario adicional para conectarse
+      MYSQL_PASSWORD: userpass    # Contraseña del usuario adicional
+    ports:
+      - "3307:3306"
+    volumes:
+      - "C:/Users/Lenovo/Desktop/ymal_docker_mysqlworkbench/mysql_data:/var/lib/mysql"
+      - "C:/Users/Lenovo/Desktop/ymal_docker_mysqlworkbench:/usr/share/nginx/html"
+volumes:
+  mysql_data:
